@@ -12,6 +12,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import React, { Component } from "react";
+import "../styles/NavBar.css";
 import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
@@ -23,13 +24,19 @@ export default class NavBar extends Component {
             LyricRace
           </NavbarBrand>
           <Nav>
-            <NavItem>
+            <NavItem className="navItem">
               <NavLink>
-                <Link to="/login">Log In</Link>
+                <Link to="/login" className="link">
+                  Log In
+                </Link>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <Link to="/signup">Sign Up</Link>
+            <NavItem className="navItem">
+              <NavLink>
+                <Link to="/signup" className="link">
+                  Sign Up
+                </Link>
+              </NavLink>
             </NavItem>
           </Nav>
         </Navbar>
