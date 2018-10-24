@@ -9,7 +9,7 @@ export default class LoginForm extends Component {
           <Form className="loginForm">
             <h2>Log In</h2>
             <FormGroup>
-              <Label for="username">Username</Label>
+              <Label for="username">Test</Label>
               <Input
                 type="text"
                 name="username"
