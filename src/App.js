@@ -10,14 +10,14 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <main>
+      <div>
         <NavBar />
         <Switch>
           <Route exact path="/" component={LoginForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
         </Switch>
-      </main>
+      </div>
     );
   }
 }
