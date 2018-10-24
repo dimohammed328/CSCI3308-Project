@@ -12,6 +12,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
   render() {
@@ -23,10 +24,12 @@ export default class NavBar extends Component {
           </NavbarBrand>
           <Nav>
             <NavItem>
-              <NavLink href="/login">Log In</NavLink>
+              <NavLink>
+                <Link to="/login">Log In</Link>
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/signup">Sign Up</NavLink>
+              <Link to="/signup">Sign Up</Link>
             </NavItem>
           </Nav>
         </Navbar>
