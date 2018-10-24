@@ -4,11 +4,12 @@
   flex-direction: column;
   justify-content: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   padding-right: 0px;
 }
 .loginHolder {
   width: 40%;
+  min-width: 375px;
   display: flex;
   justify-content: center;
   border: 2px solid #251758;
@@ -27,6 +28,7 @@
 .btn-primary:visited {
   background-color: #744b8e !important;
   border-color: #744b8e !important;
+  margin-top: 10px !important;
 }
 
 .btn-primary:hover {
@@ -34,7 +36,7 @@
   border-color: #9675ab !important;
 }
 .loginRow {
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   padding: 25px;

@@ -21,5 +21,6 @@
   background-color: #9675ab;
 }
 .navbar {
+  min-width: 450px;
   background-color: #744b8e;
 }
