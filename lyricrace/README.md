@@ -1,3 +1,17 @@
+
+### PERSONAL LYRIC RACE STUFF
+To get the webpage up and running:
+1. Make sure you have node.js installed. (Check by typing "node -v" in terminal)
+2. Navigate to CSCI3308-Project/lyricrace.
+3. "npm install" in the terminal.
+4. "npm start" in the terminal.
+
+This should start the webpage on localhost:3000
+
+
+
+
+### REACT GUIDE BELOW
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
