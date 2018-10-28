@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import LoginPage from "./components/LoginPage.js";
-import SignupPage from "./components/SignupPage.js";
 import LoginForm from "./components/LoginForm.js";
 import SignupForm from "./components/SignupForm.js";
 import NavBar from "./components/NavBar.js";
-import bcrypt from "bcrypt-nodejs";
+var axios = require("axios");
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  spinner = function() {
+    setInterval(spinner, 10000);
+    axios.get("https://lyricrace.herokuapp.com");
+  };
   render() {
     return (
       <div>
