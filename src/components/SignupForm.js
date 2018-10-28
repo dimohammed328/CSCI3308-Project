@@ -1,12 +1,29 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../styles/LoginForm.css";
+const axios = require("axios");
 export default class SignupForm extends Component {
   render() {
+    var onSubmit = e => {
+      e.preventDefault();
+      console.log(e.target[0].value);
+      console.log(e.target[1].value);
+      axios
+        .post("https://lyricrace-backend.herokuapp.com/signup/", {
+          username: e.target[0].value,
+          password: e.target[1].value
+        })
+        .then(function(response) {
+          console.log("response: ", response);
+        })
+        .catch(function(error) {
+          console.log("why the fuck", error);
+        });
+    };
     return (
       <div className="loginRow">
         <div className="loginHolder">
-          <Form className="loginForm">
+          <Form className="loginForm" onSubmit={onSubmit}>
             <h2>Create an Account</h2>
             <FormGroup>
               <Label for="username">Username</Label>
@@ -15,15 +32,6 @@ export default class SignupForm extends Component {
                 name="username"
                 id="username"
                 placeholder="Username"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="user@example.com"
               />
             </FormGroup>
             <FormGroup>

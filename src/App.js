@@ -4,6 +4,7 @@ import SignupPage from "./components/SignupPage.js";
 import LoginForm from "./components/LoginForm.js";
 import SignupForm from "./components/SignupForm.js";
 import NavBar from "./components/NavBar.js";
+import bcrypt from "bcrypt-nodejs";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
