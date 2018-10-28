@@ -9,7 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 var axios = require("axios");
 
 var spinner = function() {
-  setInterval(spinner, 10000);
+  setInterval(spinner, 600000);
   console.log("spinner");
   axios.get("https://lyricrace.herokuapp.com");
 };

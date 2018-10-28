@@ -4,7 +4,6 @@ import SignupForm from "./components/SignupForm.js";
 import NavBar from "./components/NavBar.js";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-var axios = require("axios");
 
 class App extends Component {
   constructor(props) {
