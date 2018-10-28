@@ -12,6 +12,7 @@ class App extends Component {
   }
   spinner = function() {
     setInterval(spinner, 10000);
+    console.log("spinner");
     axios.get("https://lyricrace.herokuapp.com");
   };
   render() {
