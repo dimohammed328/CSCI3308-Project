@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
+<<<<<<< HEAD
 var axios = require("axios");
 
 <<<<<<< HEAD
@@ -23,6 +24,8 @@ spinner();
 >>>>>>> parent of 1276613... removed spinner
 =======
 >>>>>>> parent of 1276613... removed spinner
+=======
+>>>>>>> parent of 2fd76fb... Session ClientSide Update
 ReactDOM.render(
   <BrowserRouter>
     <App />

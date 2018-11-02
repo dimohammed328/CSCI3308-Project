@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import bcrypt from "bcrypt-nodejs";
 import { Redirect } from "react-router-dom";
-import cookie from "react-cookies";
 import "../styles/LoginForm.css";
 const axios = require("axios");
 export default class LoginForm extends Component {
@@ -22,8 +21,6 @@ export default class LoginForm extends Component {
         })
         .then(function(response) {
           console.log("response: ", response);
-          cookie.save("username", response.data.user.username, { path: "/" });
-          cookie.save("userid", response.data.user.id, { path: "/" });
         })
         .catch(function(error) {
           console.log("why the fuck", error);
