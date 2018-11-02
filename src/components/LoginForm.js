@@ -15,10 +15,14 @@ export default class LoginForm extends Component {
       console.log(e.target[0].value);
       console.log(e.target[1].value);
       axios
-        .post("https://lyricrace-backend.herokuapp.com/login/", {
-          username: e.target[0].value,
-          password: e.target[1].value
-        })
+        .post(
+          "https://lyricrace-backend.herokuapp.com/login/",
+          {
+            username: e.target[0].value,
+            password: e.target[1].value
+          },
+          { headers: { "Access-Control-Allow-Origin": "true" } }
+        )
         .then(function(response) {
           console.log("response: ", response);
         })
