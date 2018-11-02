@@ -6,14 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
-var axios = require("axios");
-
-var spinner = function() {
-  setInterval(spinner, 600000);
-  console.log("spinner");
-  axios.get("https://lyricrace.herokuapp.com");
-};
-spinner();
 ReactDOM.render(
   <BrowserRouter>
     <App />
