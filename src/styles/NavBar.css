@@ -12,6 +12,9 @@
 .navbar-brand:active {
   color: white;
 }
+.navItem {
+  margin: 10px;
+}
 .navbar-brand {
   color: white;
   font-size: 30px !important;
