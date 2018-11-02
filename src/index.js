@@ -6,26 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
-<<<<<<< HEAD
 var axios = require("axios");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 1276613... removed spinner
-var spinner = function() {
-  setInterval(spinner, 600000);
-  console.log("spinner");
-  axios.get("https://lyricrace.herokuapp.com");
-};
-spinner();
-<<<<<<< HEAD
->>>>>>> parent of 1276613... removed spinner
-=======
->>>>>>> parent of 1276613... removed spinner
-=======
->>>>>>> parent of 2fd76fb... Session ClientSide Update
 ReactDOM.render(
   <BrowserRouter>
     <App />
