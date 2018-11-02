@@ -8,6 +8,15 @@ import * as serviceWorker from "./serviceWorker";
 
 var axios = require("axios");
 
+<<<<<<< HEAD
+=======
+var spinner = function() {
+  setInterval(spinner, 600000);
+  console.log("spinner");
+  axios.get("https://lyricrace.herokuapp.com");
+};
+spinner();
+>>>>>>> parent of 1276613... removed spinner
 ReactDOM.render(
   <BrowserRouter>
     <App />
