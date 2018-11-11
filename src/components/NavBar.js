@@ -16,6 +16,7 @@ import "../styles/NavBar.css";
 import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
+
   render() {
     return (
       <div>
@@ -25,18 +26,14 @@ export default class NavBar extends Component {
           </NavbarBrand>
           <Nav>
             <NavItem className="navItem">
-              <NavLink>
-                <Link to="/login" className="link">
-                  Log In
-                </Link>
-              </NavLink>
+              <Link to="/login" className="link">
+                Log In
+              </Link>
             </NavItem>
             <NavItem className="navItem">
-              <NavLink>
-                <Link to="/signup" className="link">
-                  Sign Up
-                </Link>
-              </NavLink>
+              <Link to="/signup" className="link">
+                Sign Up
+              </Link>
             </NavItem>
           </Nav>
         </Navbar>
