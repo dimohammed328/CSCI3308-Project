@@ -1,0 +1,42 @@
+.searchinput {
+  width: 90%;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  outline: none;
+  padding: 5px;
+}
+
+.searchbar {
+  margin: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.songlist {
+  width: 75%;
+  border: 2px solid #251758;
+  background-color: #744b8e;
+  padding: 15px;
+  display: inline-block;
+  color: white;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.searchlink {
+  color: white;
+}
+
+.searchlink:active,
+.searchlink:visited,
+.searchlink:link {
+  color: white;
+  text-decoration: none;
+}
+
+.linkwrapper:hover {
+  background-color: #9675ab
+}
