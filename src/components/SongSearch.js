@@ -110,7 +110,7 @@ export default class SongSearch extends Component {
                     return (
                         <h3 className="linkwrapper">
                             <Link to="/signup" className="searchlink">
-                                {l.song} by {l.artist}
+                                {l.song} - {l.artist}
                             </Link>
                         </h3>
                     );
