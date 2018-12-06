@@ -45,13 +45,20 @@ export default class NavBar extends Component {
                 </Link>
               </NavLink>
             </NavItem>
-             <NavItem className="navItem">
+            <NavItem className="navItem">
               <NavLink>
                 <Link to="/leaderboard" className="link">
                   Leaderboard
                 </Link>
               </NavLink>
-            </NavItem>		
+            </NavItem>
+            <NavItem className="navItem">
+              <NavLink>
+                <Link to="/play" className="link">
+                  Play
+                </Link>
+              </NavLink>
+            </NavItem>
           </Nav>
         </Navbar>
       </div>

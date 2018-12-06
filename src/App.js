@@ -22,6 +22,7 @@ class App extends Component {
           <Route path="/signup" component={SignupForm} />
           <Route path="/songselection" component={SongSelection} />
           <Route path="/leaderboard" component={Leaderboard} />
+          <Route path="/play" component={Play} />
         </Switch>
       </div>
     );
