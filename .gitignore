@@ -9,6 +9,9 @@
 # production
 /build
 
+.vscode/
+.gitignore
+
 # misc
 .DS_Store
 .env.local
