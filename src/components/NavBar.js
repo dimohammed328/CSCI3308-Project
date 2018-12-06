@@ -43,7 +43,7 @@ export default class NavBar extends Component {
                 <Link to="/songselection" className="link">
                   Song Selection
                 </Link>
-                        </NavLink>
+              </NavLink>
             </NavItem>
              <NavItem className="navItem">
               <NavLink>
