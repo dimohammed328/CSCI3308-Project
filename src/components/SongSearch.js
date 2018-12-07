@@ -74,8 +74,9 @@ export default class SongSearch extends Component {
 
     axios
       .get("http://lyricrace-backend.herokuapp.com/songselection/", {})
-      .then(function(response) {
-        console.log("response: ", response);
+      .then(res => {
+        const response = res.data.rows[0].title;
+        console.log(response);
       })
       .catch(function(error) {
         console.log("why the fuck", error);
