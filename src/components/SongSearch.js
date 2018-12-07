@@ -70,8 +70,6 @@ export default class SongSearch extends Component {
       songs: songs
     });
     this.refs.search.focus();
-<<<<<<< HEAD
-    alert("hello");
 
     axios
       .get("http://lyricrace-backend.herokuapp.com/songselection/", {})
