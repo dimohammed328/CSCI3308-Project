@@ -25,33 +25,15 @@ export default class NavBar extends Component {
           </NavbarBrand>
           <Nav>
             <NavItem className="navItem">
-              <NavLink>
-                <Link to="/login" className="link">
-                  Log In
-                </Link>
-              </NavLink>
+              <Link to="/login" className="link">
+                Log In
+              </Link>
             </NavItem>
             <NavItem className="navItem">
-              <NavLink>
-                <Link to="/signup" className="link">
-                  Sign Up
-                </Link>
-              </NavLink>
+              <Link to="/signup" className="link">
+                Sign Up
+              </Link>
             </NavItem>
-            <NavItem className="navItem">
-              <NavLink>
-                <Link to="/songselection" className="link">
-                  Song Selection
-                </Link>
-              </NavLink>
-            </NavItem>
-             <NavItem className="navItem">
-              <NavLink>
-                <Link to="/leaderboard" className="link">
-                  Leaderboard
-                </Link>
-              </NavLink>
-            </NavItem>		
           </Nav>
         </Navbar>
       </div>

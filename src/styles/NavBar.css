@@ -20,6 +20,10 @@
 .navItem:active {
   background-color: #9675ab;
 }
+.navItem {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 .navbar {
   min-width: 450px;
   background-color: #744b8e;

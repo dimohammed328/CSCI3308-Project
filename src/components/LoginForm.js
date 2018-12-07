@@ -1,26 +1,40 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import bcrypt from "bcrypt-nodejs";
 import { Redirect } from "react-router-dom";
 import "../styles/LoginForm.css";
+import cookie from "react-cookies";
 const axios = require("axios");
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = this.props.state;
   }
   render() {
     var onSubmit = e => {
       e.preventDefault();
       console.log(e.target[0].value);
       console.log(e.target[1].value);
+      var that = this;
       axios
-        .post("https://lyricrace-backend.herokuapp.com/login/", {
+        .post("http://localhost:3001/login/", {
           username: e.target[0].value,
           password: e.target[1].value
         })
         .then(function(response) {
           console.log("response: ", response);
+          if (response.data.user) {
+            cookie.save("sessionID", response.data.sessionID, {
+              expires: new Date(response.data.session.expires)
+            });
+            cookie.save("lyricraceUser", response.data.user.username, {
+              expires: new Date(response.data.session.expires)
+            });
+            that.setState({
+              username: response.data.user.username,
+              sessionID: response.data.sessionID
+            });
+            that.props.updateState(that.state);
+          }
         })
         .catch(function(error) {
           console.log("why the fuck", error);
