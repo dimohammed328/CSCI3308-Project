@@ -1,0 +1,46 @@
+#container {
+  width: 600px;
+  height: auto;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.row {
+  width: 90%;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  outline: none;
+  padding: 5px;
+  margin: auto;
+  background: white;
+}
+
+.name {
+  position: relative;
+  display: inline-block;
+  width: 75%;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.score {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.row:nth-child(1) {
+  background: gold;
+
+}
+
+.row:nth-child(2) {
+  background: #c0c0c0;
+}
+
+.row:nth-child(3) {
+  background: #cd7f32;
+}

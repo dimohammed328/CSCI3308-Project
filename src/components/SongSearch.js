@@ -70,6 +70,7 @@ export default class SongSearch extends Component {
       songs: songs
     });
     this.refs.search.focus();
+<<<<<<< HEAD
     alert("hello");
 
     axios
@@ -77,6 +78,14 @@ export default class SongSearch extends Component {
       .then(res => {
         const response = res.data.rows[0].title;
         console.log(response);
+=======
+
+    axios
+      .get("https://lyricrace-backend.herokuapp.com/songselection/", {})
+      .then(function(response) {
+        console.log("response: ", response);
+
+>>>>>>> master
       })
       .catch(function(error) {
         console.log("why the fuck", error);
