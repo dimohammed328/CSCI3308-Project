@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar.js";
 import { Switch, Route } from "react-router-dom";
 import cookie from "react-cookies";
 import "./App.css";
+import SongSelection from "./components/SongSelection.js";
 const axios = require("axios");
 
 class App extends Component {
@@ -51,6 +52,16 @@ class App extends Component {
             path="/signup"
             render={props => (
               <SignupForm
+                {...props}
+                state={this.state}
+                updateState={this.updateState}
+              />
+            )}
+          />
+          <Route
+            path="/songselection"
+            render={props => (
+              <SongSelection
                 {...props}
                 state={this.state}
                 updateState={this.updateState}
