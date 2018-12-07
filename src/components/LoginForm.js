@@ -16,7 +16,7 @@ export default class LoginForm extends Component {
       console.log(e.target[1].value);
       var that = this;
       axios
-        .post("http://localhost:3001/login/", {
+        .post("https://lyricrace-backend.herokuapp.com/login/", {
           username: e.target[0].value,
           password: e.target[1].value
         })
