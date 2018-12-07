@@ -4,6 +4,7 @@ import SignupForm from "./components/SignupForm.js";
 import NavBar from "./components/NavBar.js";
 import SongSelection from "./components/SongSelection.js";
 import Leaderboard from "./components/Leaderboard.js";
+import Play from "./components/Play.js";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
