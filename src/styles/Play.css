@@ -1,0 +1,58 @@
+#container {
+  width: 900px;
+  height: auto;
+  margin: auto;
+  margin-top: 100px;
+}
+#mule {
+  display:none;
+}
+.word {
+  color: rgba(0,0,0,0);
+  border: 1px solid grey;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+#song {
+  line-height: 35px;
+}
+#inputbox {
+  position: absolute;
+  top: 250px;
+  left: 1200px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  padding: 10px;
+}
+
+.name {
+  position: relative;
+  display: inline-block;
+  width: 75%;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.score {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.row:nth-child(1) {
+  background: gold;
+
+}
+
+.row:nth-child(2) {
+  background: #c0c0c0;
+}
+
+.row:nth-child(3) {
+  background: #cd7f32;
+}
