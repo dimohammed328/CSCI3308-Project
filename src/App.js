@@ -6,6 +6,8 @@ import { Switch, Route } from "react-router-dom";
 import cookie from "react-cookies";
 import "./App.css";
 import SongSelection from "./components/SongSelection.js";
+import Leaderboard from "./components/Leaderboard.js";
+
 const axios = require("axios");
 
 class App extends Component {
@@ -62,6 +64,16 @@ class App extends Component {
             path="/songselection"
             render={props => (
               <SongSelection
+                {...props}
+                state={this.state}
+                updateState={this.updateState}
+              />
+            )}
+          />
+          <Route
+            path="/leaderboard"
+            render={props => (
+              <Leaderboard
                 {...props}
                 state={this.state}
                 updateState={this.updateState}
