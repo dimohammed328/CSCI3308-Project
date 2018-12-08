@@ -21,22 +21,21 @@ export default class SongSearch extends Component {
       .get("http://lyricrace-backend.herokuapp.com/songselection/", {})
       .then(res => {
         var i;
-        for(i=0;i<res.data.rows.length;i++){
+        for (i = 0; i < res.data.rows.length; i++) {
           const title = res.data.rows[i].title;
           const artist = res.data.rows[i].artist;
-          list.push({artist: artist, song: title});
+          list.push({ artist: artist, song: title });
         }
         console.log(list);
+        this.setState({
+          songs: list
+        });
       })
       .catch(function(error) {
         console.log("why the fuck", error);
       });
-      
-    this.setState({
-      songs: list
-    });
-    this.refs.search.focus();
 
+    this.refs.search.focus();
   }
 
   onChange() {
@@ -75,7 +74,11 @@ export default class SongSearch extends Component {
             {songlist.map(l => {
               return (
                 <h3 className="linkwrapper">
-                  <Link to="/signup" className="searchlink">
+                  <Link
+                    to="/signup"
+                    className="searchlink"
+                    key={songlist.indexOf(l)}
+                  >
                     {l.song} - {l.artist}
                   </Link>
                 </h3>

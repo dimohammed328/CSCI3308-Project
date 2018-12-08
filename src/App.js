@@ -16,73 +16,160 @@ class App extends Component {
     this.updateState = this.updateState.bind(this);
     this.state = {
       username: cookie.load("lyricraceUser"),
-      sessionID: cookie.load("sessionID"),
-      userID: axios.post("http://localhost:3001/authenticate")
+      sessionID: cookie.load("sessionID")
     };
+  }
+  componentDidMount() {
+    axios
+      .post("http://localhost:3001/authenticate", {
+        sessionID: this.state.sessionID
+      })
+      .then(response => {
+        if (response.data.id) {
+          this.setState({ user: response.data.id });
+        } else {
+          this.setState({ user: false });
+        }
+      });
   }
   updateState(obj) {
     this.setState(obj);
+    if (this.state.sessionID) {
+      axios
+        .post("http://localhost:3001/authenticate", {
+          sessionID: this.state.sessionID
+        })
+        .then(response => {
+          if (response.data.id) {
+            this.setState({ user: response.data.id });
+          } else {
+            this.setState({ user: false });
+          }
+        });
+    }
   }
 
   render() {
-    return (
-      <div>
-        <NavBar state={this.state} updateState={this.updateState} />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <LoginForm
-                {...props}
-                state={this.state}
-                updateState={this.updateState}
-              />
-            )}
-          />
-          <Route
-            path="/login"
-            render={props => (
-              <LoginForm
-                {...props}
-                state={this.state}
-                updateState={this.updateState}
-              />
-            )}
-          />
-          <Route
-            path="/signup"
-            render={props => (
-              <SignupForm
-                {...props}
-                state={this.state}
-                updateState={this.updateState}
-              />
-            )}
-          />
-          <Route
-            path="/songselection"
-            render={props => (
-              <SongSelection
-                {...props}
-                state={this.state}
-                updateState={this.updateState}
-              />
-            )}
-          />
-          <Route
-            path="/leaderboard"
-            render={props => (
-              <Leaderboard
-                {...props}
-                state={this.state}
-                updateState={this.updateState}
-              />
-            )}
-          />
-        </Switch>
-      </div>
-    );
+    console.log(this.state.user);
+    if (this.state.user) {
+      return (
+        <div>
+          <NavBar state={this.state} updateState={this.updateState} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <SongSelection
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/login"
+              render={props => (
+                <LoginForm
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/signup"
+              render={props => (
+                <SongSelection
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/songselection"
+              render={props => (
+                <SongSelection
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/leaderboard"
+              render={props => (
+                <Leaderboard
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+          </Switch>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <NavBar state={this.state} updateState={this.updateState} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <LoginForm
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/login"
+              render={props => (
+                <LoginForm
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/signup"
+              render={props => (
+                <SignupForm
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/songselection"
+              render={props => (
+                <SongSelection
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/leaderboard"
+              render={props => (
+                <Leaderboard
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+          </Switch>
+        </div>
+      );
+    }
   }
 }
 

@@ -34,6 +34,7 @@ export default class LoginForm extends Component {
               sessionID: response.data.sessionID
             });
             that.props.updateState(that.state);
+            that.props.history.push("/songselection");
           }
         })
         .catch(function(error) {
