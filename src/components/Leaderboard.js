@@ -26,7 +26,7 @@ componentDidMount() {
 
   render() {
 
-  /*document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   let elements = []
   let container = document.querySelector('#container')
   // Add each row to the array
@@ -37,28 +37,28 @@ componentDidMount() {
   elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
   // Put the elements back into the container
   elements.forEach(e => container.appendChild(e))
-  })*/
+  })
 
     return (
       <div id="container">
-    <div class="row">
-        <div class="name">Player1</div><div class="score">430</div>
+    <div className="row">
+        <div className="name">Player1</div><div className="score">430</div>
     </div>
     
-    <div class="row">
-        <div class="name">Player2</div><div class="score">580</div>
+    <div className="row">
+        <div className="name">Player2</div><div className="score">580</div>
     </div>
     
-    <div class="row">
-        <div class="name">Player3</div><div class="score">310</div>
+    <div className="row">
+        <div className="name">Player3</div><div className="score">310</div>
     </div>
     
-    <div class="row">
-        <div class="name">Player4</div><div class="score">640</div>
+    <div className="row">
+        <div className="name">Player4</div><div className="score">640</div>
     </div>
     
-    <div class="row">
-        <div class="name">Player5</div><div class="score">495</div>
+    <div className="row">
+        <div className="name">Player5</div><div className="score">495</div>
     </div>
 </div>
     );
