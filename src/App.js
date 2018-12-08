@@ -21,7 +21,7 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .post("http://localhost:3001/authenticate", {
+      .post("https://lyricrace-backend.herokuapp.com/authenticate", {
         sessionID: this.state.sessionID
       })
       .then(response => {
@@ -36,7 +36,7 @@ class App extends Component {
     this.setState(obj);
     if (this.state.sessionID) {
       axios
-        .post("http://localhost:3001/authenticate", {
+        .post("https://lyricrace-backend.herokuapp.com/authenticate", {
           sessionID: this.state.sessionID
         })
         .then(response => {
