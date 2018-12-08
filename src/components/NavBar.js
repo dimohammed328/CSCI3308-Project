@@ -26,6 +26,7 @@ export default class NavBar extends Component {
     cookie.remove("lyricraceUser");
     cookie.remove("sessionID");
     this.props.updateState({ username: "", sessionID: "", user: false });
+    window.location = "/";
   }
   render() {
     if (!this.props.state.user || !this.props.state.username) {
