@@ -46,16 +46,6 @@ export default class NavBar extends Component {
                   Sign Up
                 </Link>
               </NavItem>
-              <NavItem className="navItem">
-                <Link to="/leaderboard" className="link">
-                  Leaderboard
-                </Link>
-              </NavItem>
-              <NavItem className="navItem">
-                <Link to="/songselection" className="link">
-                  Song Selection
-                </Link>
-              </NavItem>
             </Nav>
           </Navbar>
         </div>

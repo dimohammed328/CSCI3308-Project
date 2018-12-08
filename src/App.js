@@ -80,7 +80,7 @@ class App extends Component {
             <Route
               path="/signup"
               render={props => (
-                <SongSelection
+                <SignupForm
                   {...props}
                   state={this.state}
                   updateState={this.updateState}
