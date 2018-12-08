@@ -4,57 +4,6 @@ import { Link } from "react-router-dom";
 import "../styles/SongSearch.css";
 const axios = require("axios");
 
-let songs = [
-  {
-    artist: "Baha Men",
-    song: "Who Let the Dogs Out"
-  },
-  {
-    artist: "Brittany Spears",
-    song: "Oops, I Did it Again"
-  },
-  {
-    artist: "Bon Jovi",
-    song: "It's My Life"
-  },
-  {
-    artist: "Eminem",
-    song: "Stan"
-  },
-  {
-    artist: "Eminem",
-    song: "The Real Slim Shady"
-  },
-  {
-    artist: "Kanye West",
-    song: "Gold Digger"
-  },
-  {
-    artist: "Nelly",
-    song: "Country Grammar"
-  },
-  {
-    artist: "Outkast",
-    song: "Hey Ya!"
-  },
-  {
-    artist: "Outkast",
-    song: "Ms. Jackson"
-  },
-  {
-    artist: "Snoop Dogg",
-    song: "Drop it Like it's Hot"
-  },
-  {
-    artist: "The Black Eyed Peas",
-    song: "I Gotta Feeling"
-  },
-  {
-    artist: "The Black Eyed Peas",
-    song: "Where is the Love?"
-  }
-];
-
 export default class SongSearch extends Component {
   constructor(props) {
     super(props);
@@ -66,20 +15,28 @@ export default class SongSearch extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      songs: songs
-    });
-    this.refs.search.focus();
+    var list = [];
 
     axios
       .get("http://lyricrace-backend.herokuapp.com/songselection/", {})
       .then(res => {
-        const response = res.data.rows[0].title;
-        console.log(response);
+        var i;
+        for(i=0;i<res.data.rows.length;i++){
+          const title = res.data.rows[i].title;
+          const artist = res.data.rows[i].artist;
+          list.push({artist: artist, song: title});
+        }
+        console.log(list);
       })
       .catch(function(error) {
         console.log("why the fuck", error);
       });
+      
+    this.setState({
+      songs: list
+    });
+    this.refs.search.focus();
+
   }
 
   onChange() {
