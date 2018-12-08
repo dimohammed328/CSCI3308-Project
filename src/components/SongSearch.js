@@ -16,9 +16,9 @@ export default class SongSearch extends Component {
 
   componentDidMount() {
     var list = [];
-
+    console.log("in song selection");
     axios
-      .get("http://lyricrace-backend.herokuapp.com/songselection/", {})
+      .get("https://lyricrace-backend.herokuapp.com/songselection/", {})
       .then(res => {
         var i;
         for (i = 0; i < res.data.rows.length; i++) {
