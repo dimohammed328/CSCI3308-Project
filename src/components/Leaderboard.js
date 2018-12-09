@@ -23,7 +23,7 @@ export default class LoginForm extends Component {
       )
       .then(res => {
         that.setState({
-          list: res.data.rows.sort((a, b) => a.timesec - b.timesec)
+          list: res.data.rows.sort((a, b) => b.timesec - a.timesec)
         });
         that.state.list.forEach((item, index) => {
           item.key = index;
