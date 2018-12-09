@@ -10,9 +10,23 @@ export default class LoginForm extends Component {
     super(props);
     this.state = {};
   }
+
+componentDidMount() {
+    var list = [];
+    axios
+        .get("https://lyricrace-backend.herokuapp.com/leaderboard/", {})
+        .then(res => {
+        console.log(res);
+        })
+        .catch(function(error) {
+        console.log("why the fuck", error);
+        });
+
+}
+
   render() {
 
-  document.addEventListener('DOMContentLoaded', () => {
+  /*document.addEventListener('DOMContentLoaded', () => {
   let elements = []
   let container = document.querySelector('#container')
   // Add each row to the array
@@ -23,7 +37,7 @@ export default class LoginForm extends Component {
   elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
   // Put the elements back into the container
   elements.forEach(e => container.appendChild(e))
-  })
+  })*/
 
     return (
       <div id="container">
