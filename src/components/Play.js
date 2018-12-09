@@ -44,17 +44,23 @@ export default class LoginForm extends Component {
                         $('#word-' + i).css('color', 'white');
                     }
                 }
+                this.wordsleft -= 1;
+                $('#wordsleft').html(this.wordsleft);
                 $('#songguess').val('');
+                if (this.wordsleft == 0) {
+                    alert('You win!');
+                    window.location.href = '/songselection';
+                }
             }
         }
     }
     render() {
-        var test_song_lyics = songs[0]['lyrics'];
 
         // this function splits the song into words and then removes punctuation
         function generate_word_list(lyrics) {
             // replace newlines with spaces
-            var no_punctuation_lyrics = lyrics = lyrics.replace(/(\r\n|\n|\r)/gm, '<<<<');
+            var no_punctuation_lyrics = lyrics = lyrics.replace(/\n\s*\n/g, '\n');
+            no_punctuation_lyrics = lyrics = lyrics.replace(/(\r\n|\n|\r)/gm, '<<<<');
             no_punctuation_lyrics = no_punctuation_lyrics.replace('<<<<', '');
             no_punctuation_lyrics = no_punctuation_lyrics.replace(/\s+/g, ' ');
             lyrics = lyrics.replace(/\s+/g, ' ');
@@ -62,6 +68,7 @@ export default class LoginForm extends Component {
             // remove punctuation characters (except spaces) from no_punctuation_lyrics. this is what user input is matched against
             no_punctuation_lyrics = no_punctuation_lyrics.replace(/[^\w\s]/gi, '');
             no_punctuation_lyrics = no_punctuation_lyrics.toLowerCase();
+
 
             no_punctuation_lyrics = no_punctuation_lyrics.split(' ');
             lyrics = lyrics.split(' ');
@@ -78,19 +85,44 @@ export default class LoginForm extends Component {
         4. Color the appropriate word on the client using that index.
         */
 
-
-
-        this.word_list = generate_word_list(test_song_lyics);
+        var url = window.location.href;
+        var id = url.split('#')[1];
+        var song_lyrics = songs[id]['lyrics'];
+        this.word_list = generate_word_list(song_lyrics);
         var word_list = this.word_list;
         console.log(word_list);
 
-        //var word_list_string = JSON.stringify(word_list);
-        // I am so sorry, this is the worst hack I've ever done but I don't know how to write react code
-        // I figured this out but I'm 
+        var seen_words = [];
+        var unique_word_count = 0;
+        for (var i = 0; i < word_list['np_lyrics'].length; i++) {
+            var word = word_list['np_lyrics'][i];
+            if (seen_words.indexOf(word) == -1) {
+                console.log('newword ' + word);
+                seen_words.push(word);
+                unique_word_count += 1;
+            }
+        }
+        console.log(unique_word_count + ' UNIQUE WORDS');
+        var starting_time = unique_word_count * 3;
+        var time_left = starting_time;
+        this.wordsleft = unique_word_count;
 
 
 
         document.addEventListener('DOMContentLoaded', () => {
+            $('#timeleft').html(starting_time);
+            $('#wordsleft').html(this.wordsleft);
+
+            setInterval(function() {
+                time_left -= 1;
+                $('#timeleft').html(time_left);
+
+                if (time_left <= 0) {
+                    alert('You lose!');
+                    window.location.reload();
+                }
+            }, 1000);
+
             let elements = []
             let container = document.querySelector('#container');
             for (var i = 0; i < word_list['lyrics'].length; i++) {
@@ -109,17 +141,22 @@ export default class LoginForm extends Component {
 
         return (
             <div id="container">
-                <p id="mule"></p>
-                <div id="inputbox">
-                    Guess words here:
-                <input onChange={this.handleClick} id="songguess" type="text"></input>
-                    <br></br>
-                    <br></br>
-                    (yes I know this is ugly)
-            </div>
-                <p id="song">
+                <div id="leftcol">
+                    <p id="song">
 
-                </p>
+                    </p>
+                </div>
+                <div id="rightcol">
+                    <div id="inputbox">
+                        Guess words here:
+                        <input onChange={this.handleClick} id="songguess" type="text"></input>
+                        <br></br>
+                        <br></br>
+                        Time left: <span id="timeleft"></span><br></br>
+                        Unique words left: <span id="wordsleft"></span><br></br><br></br>
+                        <p class="ll">Hint: if you're stuck on a word, try highlighting the blank and copying that text somewhere.</p>
+                    </div>
+                </div>
             </div>
         );
     }

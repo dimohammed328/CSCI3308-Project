@@ -75,7 +75,7 @@ export default class SongSearch extends Component {
             {songlist.map(l => {
               return (
                 <h3 className="linkwrapper" key={songlist.indexOf(l)}>
-                  <Link to="/signup" className="searchlink">
+                  <Link to={'/play#' + l.id} className="searchlink">
                     {l.title} - {l.artist}
                   </Link>
                 </h3>
