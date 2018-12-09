@@ -7,7 +7,8 @@ import cookie from "react-cookies";
 import "./App.css";
 import SongSelection from "./components/SongSelection.js";
 import Leaderboard from "./components/Leaderboard.js";
-
+import LeaderboardSongSearch from "./components/LeaderboardSongSearch.js";
+import Play from "./components/Play.js";
 const axios = require("axios");
 
 class App extends Component {
@@ -98,9 +99,30 @@ class App extends Component {
               )}
             />
             <Route
+              exact
               path="/leaderboard"
               render={props => (
+                <LeaderboardSongSearch
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/leaderboard/:id"
+              render={props => (
                 <Leaderboard
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/play"
+              render={props => (
+                <Play
                   {...props}
                   state={this.state}
                   updateState={this.updateState}
@@ -157,9 +179,30 @@ class App extends Component {
               )}
             />
             <Route
+              exact
               path="/leaderboard"
               render={props => (
+                <LeaderboardSongSearch
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/leaderboard/:id"
+              render={props => (
                 <Leaderboard
+                  {...props}
+                  state={this.state}
+                  updateState={this.updateState}
+                />
+              )}
+            />
+            <Route
+              path="/play"
+              render={props => (
+                <Play
                   {...props}
                   state={this.state}
                   updateState={this.updateState}
@@ -174,4 +217,3 @@ class App extends Component {
 }
 
 export default App;
-

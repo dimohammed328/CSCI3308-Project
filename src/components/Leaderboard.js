@@ -8,30 +8,34 @@ const axios = require("axios");
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    console.log("constructor");
+    this.state = { songID: this.props.match.params.id };
   }
 
   componentDidMount() {
     var list = [];
+    var that = this;
     axios
-      .get("https://lyricrace-backend.herokuapp.com/leaderboard/")
+      .get(
+        `https://lyricrace-backend.herokuapp.com/leaderboard/${
+          this.state.songID
+        }`
+      )
       .then(res => {
-        this.setState({
-          list: res.data.rows.sort((a, b) => b.timesec - a.timesec)
+        that.setState({
+          list: res.data.rows.sort((a, b) => a.timesec - b.timesec)
         });
-        this.state.list.forEach((item, index) => {
-          console.log("hello \n\n\n", item);
+        that.state.list.forEach((item, index) => {
           item.key = index;
         });
-        this.setState({
-          listHTML: this.state.list.map(item => (
+        that.setState({
+          listHTML: that.state.list.map(item => (
             <div key={item.key} className="row">
               <div className="name">{item.username}</div>
               <div classname="score">{item.timesec}</div>
             </div>
           ))
         });
-        console.log(this.state.list);
       })
       .catch(function(error) {
         console.log("why the fuck", error);
@@ -39,9 +43,12 @@ export default class LoginForm extends Component {
   }
 
   render() {
-    if (this.state.listHTML) {
+    if (this.state.listHTML && this.state.listHTML.length > 0) {
       return <div id="container">{this.state.listHTML}</div>;
+    } else if (this.state.listHTML && this.state.listHTML.length == 0) {
+      return <h1 style={{ color: "white" }}>No scores found for this song</h1>;
     } else {
+      console.log("here2");
       return <h1 style={{ color: "white" }}>Loading...</h1>;
     }
   }

@@ -20,13 +20,13 @@ export default class SongSearch extends Component {
     axios
       .get("https://lyricrace-backend.herokuapp.com/songselection/", {})
       .then(res => {
-        // var i;
-        // for (i = 0; i < res.data.rows.length; i++) {
-        //   const title = res.data.rows[i].title;
-        //   const artist = res.data.rows[i].artist;
-        //   list.push({ artist: artist, song: title });
-        // }
-        // console.log(list);
+        //     var i, title, artist;
+        //     for (i = 0; i < res.data.rows.length; i++) {
+        //       title = res.data.rows[i].title;
+        //       artist = res.data.rows[i].artist;
+        //       list.push({ artist: artist, song: title });
+        //     }
+        //     console.log(list);
         this.setState({
           songs: res.data.rows
         });
@@ -56,30 +56,34 @@ export default class SongSearch extends Component {
         );
       });
     }
-
+    console.log(songlist);
     return (
-      <div className="searchlist">
-        <div className="searchbar">
-          <input
-            className="searchinput"
-            type="text"
-            value={this.state.searchString}
-            ref="search"
-            onChange={this.onChange}
-            placeholder="Search by Song or Artist..."
-          />
-        </div>
-        <div className="wrapper">
-          <div className="songlist">
-            {songlist.map(l => {
-              return (
-                <h3 className="linkwrapper" key={songlist.indexOf(l)}>
-                  <Link to="/signup" className="searchlink">
-                    {l.title} - {l.artist}
-                  </Link>
-                </h3>
-              );
-            })}
+      <div className="songselection">
+        <h1 style={{ color: "white" }}>Leaderboard</h1>
+        <div className="searchlist">
+          <div className="searchbar">
+            <input
+              className="searchinput"
+              type="text"
+              value={this.state.searchString}
+              ref="search"
+              onChange={this.onChange}
+              placeholder="Search by Song or Artist..."
+            />
+          </div>
+          <div className="wrapper">
+            <div className="songlist">
+              {songlist.map(l => {
+                console.log(l.id, "          ID");
+                return (
+                  <h3 className="linkwrapper" key={songlist.indexOf(l)}>
+                    <Link to={`/leaderboard/${l.id}`} className="searchlink">
+                      {l.title} - {l.artist}
+                    </Link>
+                  </h3>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
