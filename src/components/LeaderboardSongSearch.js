@@ -51,7 +51,7 @@ export default class SongSearch extends Component {
     if (search.length > 0) {
       songlist = songlist.filter(function(song) {
         return (
-          song.song.toLowerCase().match(search) ||
+          song.title.toLowerCase().match(search) ||
           song.artist.toLowerCase().match(search)
         );
       });
